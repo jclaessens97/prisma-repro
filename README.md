@@ -2,7 +2,7 @@
 
 ## Steps
 
-0) docker-compose -d up
+0) docker-compose up -d
 
 From root:
 1) pnpm i
