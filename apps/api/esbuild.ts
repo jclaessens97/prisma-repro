@@ -4,18 +4,18 @@ import glob from 'tiny-glob';
 import type { Plugin } from 'esbuild';
 import { build } from 'esbuild';
 
-// const postBuild: Plugin = {
-//   name: 'post-build',
-//   setup(build) {
-//     build.onEnd(() => {
-//       const origin = path.resolve('prisma', 'schema.prisma');
-//       const target = path.resolve('build', 'schema.prisma');
-//       copyFile(origin, target, (err) => {
-//         console.error(err);
-//       });
-//     });
-//   },
-// };
+const postBuild: Plugin = {
+  name: 'post-build',
+  setup(build) {
+    build.onEnd(() => {
+      const origin = path.resolve('prisma', 'schema.prisma');
+      const target = path.resolve('build', 'schema.prisma');
+      copyFile(origin, target, (err) => {
+        console.error(err);
+      });
+    });
+  },
+};
 
 (async function () {
   const entryPoints = await glob('index.ts');
@@ -29,9 +29,9 @@ import { build } from 'esbuild';
     platform: 'node',
     format: 'cjs',
     sourcemap: true,
-    // plugins: [
-    //   postBuild,
-    // ],
+    plugins: [
+      postBuild,
+    ],
     external: [
       'superagent-proxy',
     ],
