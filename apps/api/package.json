@@ -1,0 +1,24 @@
+{
+  "name": "prisma-repro",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "build": "rimraf build && tsx esbuild.ts",
+    "start": "prisma -v && prisma db seed && node build/index.js",
+    "generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "4.8.0"
+  },
+  "prisma": {
+    "seed": "pnpm tsx ./prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esbuild": "^0.16.10",
+    "prisma": "4.8.0",
+    "tiny-glob": "^0.2.9",
+    "tsx": "^3.12.1",
+    "rimraf": "^3.0.2"
+  }
+}

@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  devdb:
+    image: postgres:14.5-alpine
+    container_name: repro-db
+    environment:
+      POSTGRES_DB: 'repro'
+      POSTGRES_USER: 'repro'
+      POSTGRES_PASSWORD: 'repro'
+    ports:
+      - 5432:5432
