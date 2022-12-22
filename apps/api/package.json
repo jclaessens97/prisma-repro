@@ -5,6 +5,7 @@
   "scripts": {
     "build": "rimraf build && tsx esbuild.ts",
     "start": "prisma -v && prisma db seed && node build/index.js",
+    "push": "prisma db push",
     "generate": "prisma generate"
   },
   "dependencies": {
